@@ -1,0 +1,54 @@
+body {
+	font-family: 'Inter', sans-serif;
+}
+
+/* custom scrollbar for sidebar */
+.custom-scrollbar::-webkit-scrollbar {
+	width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+	background: #0f172a;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	background: #334155;
+	border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: #475569;
+}
+
+/* mobile sidebar drawer (< 768px) */
+@media (max-width: 767.98px) {
+	#admin-sidebar {
+		position: fixed !important;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 50;
+		width: 16rem !important;
+		height: 100vh !important;
+		transform: translateX(-100%);
+		transition: transform 0.3s ease-in-out;
+		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+	}
+
+	#admin-sidebar.mobile-open {
+		transform: translateX(0) !important;
+	}
+}
+
+/* desktop sidebar (>= 768px): tetap normal, statis di sisi kiri, tidak buka-tutup */
+@media (min-width: 768px) {
+	#admin-sidebar {
+		position: static !important;
+		transform: none !important;
+		width: 16rem !important;
+		min-height: 100vh !important;
+		flex-shrink: 0 !important;
+		box-shadow: none !important;
+		display: flex !important;
+	}
+}
